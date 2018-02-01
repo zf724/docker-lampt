@@ -8,15 +8,25 @@ services:
         - db:/var/lib/mysql
       ports:
         - 3306:3306
+    php:
+      build:
+        context: ./php
+      volumes:
+        - html:/var/www/html
+      depends_on:
+        - mysql
+      ports:
+      - 8081:8081
     tomcat:
       build:
-        context: .
+        context: ./tomcat
       volumes:
-        - web:/usr/local/tomcat/webapps
+        - webapps:/usr/local/tomcat/webapps
       depends_on:
         - mysql
       ports:
       - 8080:8080
 volumes:
     db:
-    web:
+    html:
+    webapps:
