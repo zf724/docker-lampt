@@ -35,6 +35,6 @@ RUN curl -fsSL 'http://pecl.php.net/get/yaf-2.3.5.tgz' -o yaf.tgz \
 
 COPY web.conf /etc/apache2/sites-enabled/web.conf
 COPY docker-php-ext-yaf.ini /usr/local/etc/php/conf.d/docker-php-ext-yaf.ini
-COPY yaf_demo /var/www/html/
+COPY yaf_demo /var/www/html/yaf_demo
 
 EXPOSE 8081
